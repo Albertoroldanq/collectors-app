@@ -17,4 +17,4 @@ $query->execute();
 
 $allWines = $query->fetchAll(); // a special function that returns all rows from the output from the db
 
-print_r($allWines); // [ ['id' => 0, 'name' => 'Rayna' ... ], [ ... ]  ]
+print_r($allWines);
