@@ -17,4 +17,24 @@ $query->execute();
 
 $allWines = $query->fetchAll(); // a special function that returns all rows from the output from the db
 
-print_r($allWines);
+echo '<h1>Winery List</h1>
+      <h2>Name</h2><h2>Origin</h2><h2>Type</h2><h2>Grape</h2>';
+
+
+foreach ($allWines as $wine) {
+    echo '<ul>';
+    echo '<li>' . $wine['name'] . '</li>';
+    echo '<li>' . $wine['origin'] . '</li>';
+    echo '<li>' . $wine['type'] . '</li>';
+    echo '<li>' . $wine['grape'] . '</li>';
+    echo '</ul>';
+}
+
+
+//
+//print_r($allWines);
+//
+//echo ($allWines[0]['id']);
+//echo ($allWines[0]['name']);
+//echo ($allWines[0]['origin']);
+//echo ($allWines[0]['grape']);
