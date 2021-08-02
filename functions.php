@@ -1,6 +1,6 @@
 <?php
 
-function createWineCard($allWines) {
+function createWineCard(array $allWines): string {
     $htmlWineCard = '';
     foreach ($allWines as $wine) {
         $htmlWineCard .= '<div class="wine-card">
