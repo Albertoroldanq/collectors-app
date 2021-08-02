@@ -17,19 +17,35 @@ $query->execute();
 
 $allWines = $query->fetchAll(); // a special function that returns all rows from the output from the db
 
-echo '<h1>Winery List</h1>
-      <h2>Name</h2><h2>Origin</h2><h2>Type</h2><h2>Grape</h2>';
+?>
+
+<html>
+<head>
+
+</head>
+<body>
+    <div class="wine-cards-container">
+        <!-- >should  i create a wine class? and then call the class inside the html -->
+        <?php
+        foreach ($allWines as $wine) {
+            echo '<div class="wine-card">
+                    <h2>'
+                        .  $wine['name'] .
+                    '</h2>
+                    <div class="wine-cracteristics">
+                        <h3>' . $wine['type'] . '</h3>
+                        <h3>' . $wine['origin'] . '</h3>
+                        <h3>' . $wine['grape'] . '</h3>
+                    </div
+                  </div>';
+        } ?>
+    </div>
+
+</body>
+</html>
 
 
-foreach ($allWines as $wine) {
-    echo '<ul>';
-    echo '<li>' . $wine['name'] . '</li>';
-    echo '<li>' . $wine['origin'] . '</li>';
-    echo '<li>' . $wine['type'] . '</li>';
-    echo '<li>' . $wine['grape'] . '</li>';
-    echo '</ul>';
-}
-
+<?php
 
 //
 //print_r($allWines);
