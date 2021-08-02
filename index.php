@@ -6,6 +6,7 @@ require 'functions.php';
 
 <html>
 <head>
+    <meta charset="utf-8">
     <!--CUSTOM STYLESHEET-->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -17,4 +18,5 @@ require 'functions.php';
     </div>
 
 </body>
+
 </html>
