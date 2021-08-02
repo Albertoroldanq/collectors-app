@@ -18,10 +18,11 @@ h1{
 }
 
 .wine-card {
-    background: #CCCCCC;
+    background: red;
     padding: 20px;
     margin:10px;
     min-width:30%;
+    border-radius:10px;
 }
 
 .wine-card h2 {

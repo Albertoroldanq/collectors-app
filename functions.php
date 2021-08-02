@@ -16,3 +16,6 @@ function createWineCard($allWines) {
         }
     return $htmlWineCard;
 }
+
+function addNewWine() {
+}
