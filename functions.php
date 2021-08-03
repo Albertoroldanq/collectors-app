@@ -9,8 +9,8 @@ function createWineCard(array $allWines): string {
             } else {
                 $htmlWineCard .= '<div class="wine-card">
                         <h2>'
-                    . $wine['name'] .
-                    '</h2>
+                        . $wine['name'] .
+                        '</h2>
                         <div class="wine-caracteristics">
                             <h3>' . $wine['type'] . '</h3>
                             <h3>' . $wine['origin'] . '</h3>
