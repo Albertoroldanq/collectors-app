@@ -3,14 +3,15 @@
 require_once 'db-query.php';
 require 'functions.php';
 
-echo is_array($allWines[0]);
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <!--CUSTOM STYLESHEET-->
     <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Vegan Wines List</title>
 </head>
 <body>
     <h1>Winery List</h1>
