@@ -1,6 +1,12 @@
 <?php
 
-require_once 'db-query.php';
+$db = new PDO('mysql:host=db; dbname=vegan-wines', 'root', 'password');
+
+$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+$query = $db->prepare('SELECT * FROM `list-of-wines`;');
+$query->execute();
+$allWines = $query->fetchAll();
 require 'functions.php';
 
 ?>
@@ -9,7 +15,6 @@ require 'functions.php';
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!--CUSTOM STYLESHEET-->
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Vegan Wines List</title>
 </head>
