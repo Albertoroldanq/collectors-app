@@ -11,5 +11,3 @@ $query = $db->prepare('SELECT * FROM `list-of-wines`;');
 // THE ONE TIME that the PDO communicates with the db
 $query->execute();
 $allWines = $query->fetchAll(); // a special function that returns all rows from the output from the db
-
-var_dump($allWines);

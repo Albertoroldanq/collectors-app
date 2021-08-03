@@ -2,6 +2,8 @@
 
 require_once 'db-query.php';
 require 'functions.php';
+
+echo is_array($allWines[0]);
 ?>
 
 <html>
@@ -20,5 +22,3 @@ require 'functions.php';
 </body>
 
 </html>
-
-<?php
