@@ -1,9 +1,7 @@
 <?php
 require_once '../../functions.php';
 
-use PHpUnit\Framework\TestCase; // magic code needed for the PHPUnit
-
-//copied from the unit testing exercise
+use PHpUnit\Framework\TestCase;
 
 class Functions extends TestCase {
     public function testSuccessCreateWineCard() {
@@ -24,7 +22,6 @@ class Functions extends TestCase {
             'grape'=> 'Malbec']
         ];
         $actualOutput = createWineCard($input);
-        // what makes the test flag up as pass or fail
         $this->assertEquals($expectedOutput, $actualOutput);
     }
 
@@ -44,7 +41,6 @@ class Functions extends TestCase {
     public function testMalformedCreateWineCard() {
         $input = 'hello';
 
-        // telling the test to expect this tpe of error when the function bring tested is called
         $this->expectException(TypeError::class);
         $actualOutput = createWineCard($input);
     }

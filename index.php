@@ -16,7 +16,6 @@ require 'functions.php';
 <body>
     <h1>Winery List</h1>
     <div class="wine-cards-container">
-        <!-- >should  i create a wine class? and then call the class inside the html -->
         <?php echo createWineCard($allWines);?>
     </div>
 
