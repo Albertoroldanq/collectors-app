@@ -24,3 +24,15 @@ function createWineCards(array $allWines): string {
         }
     return $htmlWineCards;
 }
+
+$nameOfWine = $_POST['name'];
+$typeOfWine = $_POST['type'];
+$countryOfWine = $_POST['country'];
+$grapeOfWine = $_POST['grape'];
+
+$newWine = [$nameOfWine, $typeOfWine, $countryOfWine, $grapeOfWine];
+
+function addNewWine(array $newWine) {
+    return $newWine;
+}
+
