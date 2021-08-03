@@ -14,7 +14,7 @@ class Functions extends TestCase {
                             <h3>Malbec</h3>
                         </div>
                       </div>';
-        $input = [0 => [
+        $input = [[
             'id'=> 1,
             'name'=>'Vinalba Malbec',
             'origin'=> 'Argentina',

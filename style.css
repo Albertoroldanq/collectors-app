@@ -29,7 +29,28 @@ h1{
     text-align:center;
 }
 
-.wine-caracteristics {
+.wine-characteristics {
     display:flex;
     justify-content: space-around;
+}
+
+.wine-characteristics h3{
+    margin: 0 8px;
+}
+
+@media screen and (max-width: 700px) {
+    .wine-card {
+        min-width:100%;
+    }
+    .wine-characteristics {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .wine-characteristics {
+        flex-direction:column;
+        text-align: center;
+    }
+
 }

@@ -1,17 +1,17 @@
 <?php
 
-function createWineCard(array $allWines): string {
-        $htmlWineCard = '';
+function createWineCards(array $allWines): string {
+        $htmlWineCards = '';
         $invalidInput = false;
         foreach ($allWines as $wine) {
             if(!is_string($wine['name'])|| !is_string($wine['type']) || !is_string($wine['origin']) || !is_string($wine['grape'])){
-                            $invalidInput = true;
+                $invalidInput = true;
             } else {
-                $htmlWineCard .= '<div class="wine-card">
+                $htmlWineCards .= '<div class="wine-card">
                         <h2>'
                         . $wine['name'] .
                         '</h2>
-                        <div class="wine-caracteristics">
+                        <div class="wine-characteristics">
                             <h3>' . $wine['type'] . '</h3>
                             <h3>' . $wine['origin'] . '</h3>
                             <h3>' . $wine['grape'] . '</h3>
@@ -22,5 +22,5 @@ function createWineCard(array $allWines): string {
                 return 'incorrect db format';
             }
         }
-    return $htmlWineCard;
+    return $htmlWineCards;
 }
