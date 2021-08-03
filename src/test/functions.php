@@ -19,8 +19,8 @@ class Functions extends TestCase {
             'name'=>'Vinalba Malbec',
             'origin'=> 'Argentina',
             'type'=> 'Red',
-            'grape'=> 'Malbec']
-        ];
+            'grape'=> 'Malbec'
+        ]];
         $actualOutput = createWineCard($input);
         $this->assertEquals($expectedOutput, $actualOutput);
     }
