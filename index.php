@@ -20,3 +20,5 @@ require 'functions.php';
 </body>
 
 </html>
+
+<?php
