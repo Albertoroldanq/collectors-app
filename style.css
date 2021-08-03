@@ -1,5 +1,10 @@
 html {
+    padding:0;
+    margin:0;
 
+}
+body{
+    width:100%;
 }
 
 * {
@@ -11,21 +16,32 @@ h1{
 }
 
 .wine-cards-container {
-    display:flex;
-    width:100%;
+    display: flex;
+    padding: 0;
+    width: 100%;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.wine-card {
+.wine-card{
     background: #cccccc;
     padding: 20px;
-    margin:10px;
-    min-width:30%;
+    margin: 10px;
+
     border-radius:10px;
 }
 
-.wine-card h2 {
+.wine-card input {
+    margin:10px 5px;
+}
+
+.wine-card .form-add-wine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wine-card h2, .wine-card .input-name {
     text-align:center;
 }
 
