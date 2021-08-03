@@ -1,20 +1,24 @@
 <?php
 
-// creating a PDO object with the appropriate credentials for our db
-$db = new PDO('mysql:host=db; dbname=vegan-wines', 'root', 'password');
+require_once 'db-query.php';
+require 'functions.php';
 
-// calling a function that belongs to the object
-// changing the default "fetch mode" of the PDO - this affects the format of the data that gets pulled out of the db
-//e.g. PDO::FETCH_ASSOC formats the output from the db as an associative array
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+echo is_array($allWines[0]);
+?>
 
-// creating a query object
-//"preparing" a query - the query has not been run yet, only created and prepared
-$query = $db->prepare('SELECT * FROM `list-of-wines`;');
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--CUSTOM STYLESHEET-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Winery List</h1>
+    <div class="wine-cards-container">
+        <!-- >should  i create a wine class? and then call the class inside the html -->
+        <?php echo createWineCard($allWines);?>
+    </div>
 
-// THE ONE TIME that the PDO communicates with the db
-$query->execute();
+</body>
 
-$allWines = $query->fetchAll(); // a special function that returns all rows from the output from the db
-
-print_r($allWines);
+</html>

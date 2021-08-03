@@ -1,0 +1,35 @@
+html {
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1{
+    text-align:center;
+}
+
+.wine-cards-container {
+    display:flex;
+    width:100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wine-card {
+    background: #cccccc;
+    padding: 20px;
+    margin:10px;
+    min-width:30%;
+    border-radius:10px;
+}
+
+.wine-card h2 {
+    text-align:center;
+}
+
+.wine-caracteristics {
+    display:flex;
+    justify-content: space-around;
+}
