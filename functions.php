@@ -8,30 +8,49 @@ function createWineCards(array $allWines): string {
                 $invalidInput = true;
             } else {
                 if ($wine['type'] == 'Red'){
-                    $htmlWineCards .= '<div class="wine-card">
-                        <div>
-                        
-                        </div>
+                    $htmlWineCards .= '<div class ="wine-card-wrapper red-label">
+                        <div class="wine-card">
                         <h2 class="red-wine-title">'
                         . $wine['name'] .
                         '</h2>
-                        <div class="wine-characteristics">
-                            <h3>' . $wine['type'] . '</h3>
-                            <h3>' . $wine['origin'] . '</h3>
-                            <h3>' . $wine['grape'] . '</h3>
+                        <div class="wine-characteristics-wrapper">
+                            <div class="wine-characteristic">
+                                <h3>WINE TYPE</h3>
+                                <p>' . $wine['type'] . '</p>
+                            </div>
+                            <div class="wine-characteristic">
+                                <h3>COUNTRY</h3>
+                                <p>' . $wine['origin'] . '</p>
+                            </div>
+                            <div class="wine-characteristic">
+                                <h3>GRAPE</h3>
+                                <p>' . $wine['grape'] . '</p>
+                            </div>
                         </div>
-                      </div>';
+                      </div>
+                    </div>';
                 } else if ($wine['type'] == 'White')
-                $htmlWineCards .= '<div class="wine-card">
+                $htmlWineCards .= '<div class ="wine-card-wrapper white-label">
+                        <div class="wine-card">
                         <h2 class="white-wine-title">'
-                        . $wine['name'] .
-                        '</h2>
-                        <div class="wine-characteristics">
-                            <h3>' . $wine['type'] . '</h3>
-                            <h3>' . $wine['origin'] . '</h3>
-                            <h3>' . $wine['grape'] . '</h3>
+                    . $wine['name'] .
+                    '</h2>
+                        <div class="wine-characteristics-wrapper">
+                            <div class="wine-characteristic">
+                                <h3>WINE TYPE</h3>
+                                <p>' . $wine['type'] . '</p>
+                            </div>
+                            <div class="wine-characteristic">
+                                <h3>COUNTRY</h3>
+                                <p>' . $wine['origin'] . '</p>
+                            </div>
+                            <div class="wine-characteristic">
+                                <h3>GRAPE</h3>
+                                <p>' . $wine['grape'] . '</p>
+                            </div>
                         </div>
-                      </div>';
+                      </div>
+                    </div>';
             }
             if ($invalidInput) {
                 return 'incorrect db format';

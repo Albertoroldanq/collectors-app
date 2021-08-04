@@ -12,8 +12,8 @@ $allWines = $query->fetchAll();
 
 $addWineQuery = $db->prepare('INSERT INTO `list-of-wines` (`name`,`origin`, `type`, `grape`) VALUES (:name, :origin, :type, :grape );');
 $addWineQuery->bindParam(':name', $nameOfWine);
-$addWineQuery->bindParam(':origin', $typeOfWine);
-$addWineQuery->bindParam(':type', $countryOfWine);
+$addWineQuery->bindParam(':origin', $countryOfWine);
+$addWineQuery->bindParam(':type', $typeOfWine);
 $addWineQuery->bindParam(':grape', $grapeOfWine);
 
 if(count($_SESSION) && isset($_POST)) {
@@ -45,19 +45,29 @@ session_destroy();
     </header>
     <main>
         <div class="wine-cards-container">
-            <div class="wine-card-form">
-                <form action="submitVerification.php" method="POST" class="form-add-wine">
-
+            <div class ="wine-card-wrapper new-wine-label">
+                <div class="wine-card">
+                    <form action="submitVerification.php" method="POST" class="form-add-wine">
                         <input type="text" placeholder="Name of wine" name="name" class="input-name" required>
-
-                    <div class="wine-characteristics">
-                        <input type="text" placeholder="Country" name="country" required>
-                        <input type="text" placeholder="Type of wine" name="type" required>
-                        <input type="text" placeholder="Grape" name="grape" required>
-                    </div>
-                    <button type="submit" class="add-button"><i class="fas fa-plus"></i> Add</button>
-                </form>
+                        <div class="wine-characteristics-wrapper">
+                            <div class="wine-characteristic">
+                                <label>WINE TYPE</label>
+                                <input type="text" placeholder="Country" name="country" required>
+                            </div>
+                            <div class="wine-characteristic">
+                                <label>COUNTRY</label>
+                                <input type="text" placeholder="Type of wine" name="type" required>
+                            </div>
+                            <div class="wine-characteristic">
+                                <label>GRAPE</label>
+                                <input type="text" placeholder="Grape" name="grape" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="add-button"><i class="fas fa-plus"></i> Add</button>
+                    </form>
+                </div>
             </div>
+
             <?php echo createWineCards($allWines);?>
         </div>
     </main>
