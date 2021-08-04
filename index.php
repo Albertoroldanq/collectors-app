@@ -42,7 +42,7 @@ session_destroy();
 </head>
 <body>
     <header>
-        <h1>Winery List</h1>
+        <h1>My Wine List</h1>
     </header>
     <main>
         <div class="wine-cards-container">

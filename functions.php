@@ -3,12 +3,14 @@
 function createWineCards(array $allWines): string {
         $htmlWineCards = '';
         $invalidInput = false;
+
         foreach ($allWines as $wine) {
-            if(!is_string($wine['name'])|| !is_string($wine['type']) || !is_string($wine['origin']) || !is_string($wine['grape'])){
+            if(!is_string($wine['name']) || !is_string($wine['type']) || !is_string($wine['origin']) || !is_string($wine['grape'])){
                 $invalidInput = true;
             } else {
                 if ($wine['type'] == 'Red'){
-                    $htmlWineCards .= '<div class ="wine-card-wrapper red-label">
+                    $htmlWineCards .= '
+                    <div class ="wine-card-wrapper red-label">
                         <div class="wine-card">
                         <h2 class="red-wine-title">'
                         . $wine['name'] .
@@ -30,11 +32,12 @@ function createWineCards(array $allWines): string {
                       </div>
                     </div>';
                 } else if ($wine['type'] == 'White')
-                $htmlWineCards .= '<div class ="wine-card-wrapper white-label">
+                $htmlWineCards .= '
+                    <div class ="wine-card-wrapper white-label">
                         <div class="wine-card">
                         <h2 class="white-wine-title">'
-                    . $wine['name'] .
-                    '</h2>
+                        . $wine['name'] .
+                        '</h2>
                         <div class="wine-characteristics-wrapper">
                             <div class="wine-characteristic">
                                 <h3>WINE TYPE</h3>
@@ -53,7 +56,7 @@ function createWineCards(array $allWines): string {
                     </div>';
             }
             if ($invalidInput) {
-                return 'incorrect db format';
+                return 'incorrect data inserted';
             }
         }
     return $htmlWineCards;
