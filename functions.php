@@ -25,9 +25,3 @@ function createWineCards(array $allWines): string {
     return $htmlWineCards;
 }
 
-
-function addNewWine(array $newWine) {
-  return $newWine;
-
-}
-

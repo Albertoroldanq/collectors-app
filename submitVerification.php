@@ -1,6 +1,10 @@
 <?php
 session_start();
-    if($_POST['name'] !='' && $_POST['type'] !='' && $_POST['country'] !='' && $_POST['grape'] !=''){
+if(!isset($_POST)) {
+    session_unset();
+    header('Location: index.php');
+} else {
+    if ($_POST['name'] !='' && $_POST['type'] !='' && $_POST['country'] !='' && $_POST['grape'] !=''){
         $_SESSION['set'] = true;
         $_SESSION['name'] = $_POST['name'];
         $_SESSION['type'] = $_POST['type'];
@@ -9,9 +13,12 @@ session_start();
         header('Location: index.php');
     } else {
         session_abort();
-        $_SESSION['set'] = false;
         header('Location: index.php');
     }
+}
+
+
+
 
 
 

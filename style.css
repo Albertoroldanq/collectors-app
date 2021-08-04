@@ -15,7 +15,7 @@ body{
 }
 
 h1{
-    text-align:center;
+    text-align: center;
 }
 
 .wine-cards-container {
@@ -35,7 +35,7 @@ h1{
 }
 
 .wine-card input {
-    margin:10px 5px;
+    margin: 10px 5px;
 }
 
 .wine-card .form-add-wine {
@@ -46,7 +46,7 @@ h1{
 }
 
 .wine-card h2, .wine-card .input-name {
-    text-align:center;
+    text-align: center;
 }
 
 .wine-characteristics {
@@ -60,7 +60,7 @@ h1{
 
 @media screen and (max-width: 700px) {
     .wine-card {
-        min-width:100%;
+        min-width: 100%;
     }
     .wine-characteristics {
         justify-content: center;
@@ -69,7 +69,7 @@ h1{
 
 @media screen and (max-width: 600px) {
     .wine-characteristics {
-        flex-direction:column;
+        flex-direction: column;
         text-align: center;
     }
 
