@@ -9,6 +9,9 @@ function createWineCards(array $allWines): string {
             } else {
                 if ($wine['type'] == 'Red'){
                     $htmlWineCards .= '<div class="wine-card">
+                        <div>
+                        
+                        </div>
                         <h2 class="red-wine-title">'
                         . $wine['name'] .
                         '</h2>
