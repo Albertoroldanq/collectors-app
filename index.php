@@ -33,6 +33,7 @@ session_destroy();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <script src="https://kit.fontawesome.com/5b176a6be4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="normalize.css">
@@ -48,15 +49,18 @@ session_destroy();
             <div class ="wine-card-wrapper new-wine-label">
                 <div class="wine-card">
                     <form action="submitVerification.php" method="POST" class="form-add-wine">
-                        <input type="text" placeholder="Name of wine" name="name" class="input-name" required>
+                        <input type="text" placeholder="Insert wine name" name="name" class="input-name" required>
                         <div class="wine-characteristics-wrapper">
                             <div class="wine-characteristic">
                                 <label>WINE TYPE</label>
-                                <input type="text" placeholder="Country" name="country" required>
+                                <select name="type">
+                                    <option value="Red">Red</option>
+                                    <option value="White">White</option>
+                                </select>
                             </div>
                             <div class="wine-characteristic">
                                 <label>COUNTRY</label>
-                                <input type="text" placeholder="Type of wine" name="type" required>
+                                <input type="text" placeholder="Country" name="country" required>
                             </div>
                             <div class="wine-characteristic">
                                 <label>GRAPE</label>
