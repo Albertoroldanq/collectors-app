@@ -17,17 +17,18 @@ $addWineQuery->bindParam(':type', $countryOfWine);
 $addWineQuery->bindParam(':grape', $grapeOfWine);
 
 
-    if(count($_SESSION)){
-        $nameOfWine = $_SESSION['name'];
-        $typeOfWine = $_SESSION['type'];
-        $countryOfWine = $_SESSION['country'];
-        $grapeOfWine = $_SESSION['grape'];
-        $newWine = [$nameOfWine, $typeOfWine, $countryOfWine, $grapeOfWine];
-        $addWineQuery->execute();
-        header("location:index.php");
-    }
+if(count($_SESSION)){
+    $nameOfWine = $_SESSION['name'];
+    $typeOfWine = $_SESSION['type'];
+    $countryOfWine = $_SESSION['country'];
+    $grapeOfWine = $_SESSION['grape'];
+    $newWine = [$nameOfWine, $typeOfWine, $countryOfWine, $grapeOfWine];
+    $addWineQuery->execute();
+    header("location:index.php");
+}
 
-// https://en.ryte.com/wiki/Post-Redirect-Get#How_it_works
+session_unset();
+session_destroy();
 
 ?>
 
@@ -35,6 +36,7 @@ $addWineQuery->bindParam(':grape', $grapeOfWine);
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Vegan Wines List</title>
 </head>
@@ -54,17 +56,12 @@ $addWineQuery->bindParam(':grape', $grapeOfWine);
                         <input type="text" placeholder="Type of wine" name="type" required>
                         <input type="text" placeholder="Grape" name="grape" required>
                     </div>
-                    <input type="submit">
+                    <input type="submit" class =>
                 </form>
             </div>
             <?php echo createWineCards($allWines);?>
         </div>
-        <!--        --><?php //var_dump(addNewWine($newWine));?>
     </main>
 </body>
 
 </html>
-
-<?php
-session_unset();
-session_destroy();
