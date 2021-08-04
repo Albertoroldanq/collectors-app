@@ -1,32 +1,52 @@
-html {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+html {
+    padding:0;
+    margin:0;
+
+}
+body{
+    width:100%;
 }
 
 * {
+    font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
 
 h1{
-    text-align:center;
+    text-align: center;
 }
 
 .wine-cards-container {
-    display:flex;
-    width:100%;
+    display: flex;
+    padding: 0;
+    width: 100%;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.wine-card {
+.wine-card{
     background: #cccccc;
     padding: 20px;
-    margin:10px;
-    min-width:30%;
+    margin: 10px;
+
     border-radius:10px;
 }
 
-.wine-card h2 {
-    text-align:center;
+.wine-card input {
+    margin: 10px 5px;
+}
+
+.wine-card .form-add-wine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wine-card h2, .wine-card .input-name {
+    text-align: center;
 }
 
 .wine-characteristics {
@@ -40,16 +60,16 @@ h1{
 
 @media screen and (max-width: 700px) {
     .wine-card {
-        min-width:100%;
+        min-width: 100%;
     }
     .wine-characteristics {
         justify-content: center;
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
     .wine-characteristics {
-        flex-direction:column;
+        flex-direction: column;
         text-align: center;
     }
 

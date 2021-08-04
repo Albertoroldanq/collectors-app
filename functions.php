@@ -24,3 +24,4 @@ function createWineCards(array $allWines): string {
         }
     return $htmlWineCards;
 }
+
