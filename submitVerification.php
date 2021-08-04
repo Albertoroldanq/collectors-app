@@ -5,7 +5,6 @@ if(!isset($_POST)) {
     header('Location: index.php');
 } else {
     if ($_POST['name'] !='' && $_POST['type'] !='' && $_POST['country'] !='' && $_POST['grape'] !=''){
-        $_SESSION['set'] = true;
         $_SESSION['name'] = $_POST['name'];
         $_SESSION['type'] = $_POST['type'];
         $_SESSION['country'] = $_POST['country'];

@@ -16,7 +16,7 @@ $addWineQuery->bindParam(':origin', $typeOfWine);
 $addWineQuery->bindParam(':type', $countryOfWine);
 $addWineQuery->bindParam(':grape', $grapeOfWine);
 
-if(count($_SESSION) && isset($_POST)) {
+if(count($_SESSION) == 4 && isset($_POST)) {
     $nameOfWine = $_SESSION['name'];
     $typeOfWine = $_SESSION['type'];
     $countryOfWine = $_SESSION['country'];
