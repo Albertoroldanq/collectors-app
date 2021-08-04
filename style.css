@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&family=Yeseva+One&display=swap');
 
 html {
     padding:0;
@@ -13,7 +13,9 @@ body {
     box-sizing: border-box;
 }
 
-h1{
+
+
+h1 {
     text-align: center;
 }
 
@@ -26,7 +28,7 @@ h1{
 }
 
 .wine-card, .wine-card-form{
-    background: #cccccc;
+    background: #F8F8F8;
     padding: 20px;
     margin: 10px;
     border-radius:10px;
@@ -55,7 +57,16 @@ h1{
 }
 
 .wine-card h2 {
-    text-align: center;
+    text-align: left;
+    font-size: 1.9rem;
+}
+
+h2.red-wine-title {
+    color: #9D214E;
+}
+
+h2.white-wine-title {
+    color: #B68B3C;
 }
 
 .wine-characteristics {

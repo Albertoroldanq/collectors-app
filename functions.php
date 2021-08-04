@@ -7,8 +7,20 @@ function createWineCards(array $allWines): string {
             if(!is_string($wine['name'])|| !is_string($wine['type']) || !is_string($wine['origin']) || !is_string($wine['grape'])){
                 $invalidInput = true;
             } else {
+                if ($wine['type'] == 'Red'){
+                    $htmlWineCards .= '<div class="wine-card">
+                        <h2 class="red-wine-title">'
+                        . $wine['name'] .
+                        '</h2>
+                        <div class="wine-characteristics">
+                            <h3>' . $wine['type'] . '</h3>
+                            <h3>' . $wine['origin'] . '</h3>
+                            <h3>' . $wine['grape'] . '</h3>
+                        </div>
+                      </div>';
+                } else if ($wine['type'] == 'White')
                 $htmlWineCards .= '<div class="wine-card">
-                        <h2>'
+                        <h2 class="white-wine-title">'
                         . $wine['name'] .
                         '</h2>
                         <div class="wine-characteristics">
