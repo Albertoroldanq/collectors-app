@@ -3,9 +3,8 @@
 html {
     padding:0;
     margin:0;
-
 }
-body{
+body {
     width:100%;
 }
 
@@ -26,44 +25,86 @@ h1{
     flex-wrap: wrap;
 }
 
-.wine-card{
+.wine-card, .wine-card-form{
     background: #cccccc;
     padding: 20px;
     margin: 10px;
-
     border-radius:10px;
 }
 
-.wine-card input {
-    margin: 10px 5px;
-}
+/*.wine-characteristics input {*/
+/*    width: 30%;*/
+/*}*/
 
-.wine-card .form-add-wine {
+.wine-card-form form.form-add-wine {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.wine-card h2, .wine-card .input-name {
+.wine-card-form input {
+    border: none;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.4);
+    color: #58181F;
+}
+
+.wine-card-form input:focus {
+    outline: none;
+}
+
+.wine-card h2 {
     text-align: center;
 }
 
 .wine-characteristics {
     display:flex;
     justify-content: space-around;
+    margin: 10px 0;
 }
 
 .wine-characteristics h3{
     margin: 0 8px;
 }
+.wine-characteristics input {
+    max-width: 30%;
+}
+
+.add-button {
+    padding: 8px 20px;
+    background: green;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 5px;
+}
+
+.add-button .fa-plus {
+    font-size: 1rem;
+    margin-right: 5px;
+}
 
 @media screen and (max-width: 700px) {
-    .wine-card {
+    .wine-card, .wine-card-form {
         min-width: 100%;
     }
+
     .wine-characteristics {
         justify-content: center;
+    }
+
+    .wine-card-form .wine-characteristics {
+        justify-content: space-around;
+    }
+    .wine-characteristics input {
+    }
+
+    .wine-card, .wine-card-form {
+        margin: 10px 0;
     }
 }
 
@@ -71,6 +112,17 @@ h1{
     .wine-characteristics {
         flex-direction: column;
         text-align: center;
+    }
+
+    .wine-characteristics, h2, .input-name {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .wine-card-form input {
+        max-width: 100%;
+        margin: 5px 0;
     }
 
 }

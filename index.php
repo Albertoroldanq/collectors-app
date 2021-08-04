@@ -34,6 +34,7 @@ session_destroy();
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/5b176a6be4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Vegan Wines List</title>
@@ -44,17 +45,17 @@ session_destroy();
     </header>
     <main>
         <div class="wine-cards-container">
-            <div class="wine-card">
-                <form action="submitVerification.php" method="POST">
-                    <div class="form-add-wine">
+            <div class="wine-card-form">
+                <form action="submitVerification.php" method="POST" class="form-add-wine">
+
                         <input type="text" placeholder="Name of wine" name="name" class="input-name" required>
-                    </div>
+
                     <div class="wine-characteristics">
                         <input type="text" placeholder="Country" name="country" required>
                         <input type="text" placeholder="Type of wine" name="type" required>
                         <input type="text" placeholder="Grape" name="grape" required>
                     </div>
-                    <input type="submit" class =>
+                    <button type="submit" class="add-button"><i class="fas fa-plus"></i> Add</button>
                 </form>
             </div>
             <?php echo createWineCards($allWines);?>
