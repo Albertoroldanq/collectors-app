@@ -9,6 +9,12 @@ function createWineCards(array $allWines): string {
                 $invalidInput = true;
             } else {
                 if ($wine['type'] == 'Red'){
+                    $favorite = $wine['favorite'];
+                    if ($favorite == 1) {
+                        $favoriteClass = 'favorite-item';
+                    } else {
+                        $favoriteClass = 'non-favorite-item';
+                    }
                     $htmlWineCards .= '
                     <div class ="wine-card-wrapper red-label">
                         <div class="wine-card">
@@ -27,6 +33,14 @@ function createWineCards(array $allWines): string {
                             <div class="wine-characteristic">
                                 <h3>GRAPE</h3>
                                 <p>' . $wine['grape'] . '</p>
+                            </div>
+                        </div>
+                        <div class="features-container">
+                            <div class="wine-rating">
+                                <span><span class="star-rating star-rating-'.$wine['rating'].'"></span></span>
+                            </div>
+                            <div class="heart-container">
+                                <span><span class="' . $favoriteClass.'"></span></span>
                             </div>
                         </div>
                       </div>
@@ -50,6 +64,14 @@ function createWineCards(array $allWines): string {
                             <div class="wine-characteristic">
                                 <h3>GRAPE</h3>
                                 <p>' . $wine['grape'] . '</p>
+                            </div>
+                        </div>
+                        <div class="features-container">
+                            <div class="wine-rating">
+                                <span><span class="star-rating star-rating-'.$wine['rating'].'"></span></span>
+                            </div>
+                            <div class="heart-container">
+                                <span><span class="' . $favoriteClass.'"></span></span>
                             </div>
                         </div>
                       </div>

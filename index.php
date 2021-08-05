@@ -10,17 +10,22 @@ $query = $db->prepare('SELECT * FROM `list-of-wines`;');
 $query->execute();
 $allWines = $query->fetchAll();
 
-$addWineQuery = $db->prepare('INSERT INTO `list-of-wines` (`name`,`origin`, `type`, `grape`) VALUES (:name, :origin, :type, :grape );');
+$addWineQuery = $db->prepare('INSERT INTO `list-of-wines` (`name`,`origin`, `type`, `grape`, `favorite`, `rating`) VALUES (:name, :origin, :type, :grape, :favorite, :rating );');
 $addWineQuery->bindParam(':name', $nameOfWine);
 $addWineQuery->bindParam(':origin', $countryOfWine);
 $addWineQuery->bindParam(':type', $typeOfWine);
 $addWineQuery->bindParam(':grape', $grapeOfWine);
+$addWineQuery->bindParam(':favorite', $favoriteWine);
+$addWineQuery->bindParam(':rating', $ratingWine);
 
-if(count($_SESSION) == 4 && isset($_POST)) {
+if(count($_SESSION) == 6 && isset($_POST)) {
     $nameOfWine = $_SESSION['name'];
     $typeOfWine = $_SESSION['type'];
     $countryOfWine = $_SESSION['country'];
     $grapeOfWine = $_SESSION['grape'];
+    $grapeOfWine = $_SESSION['grape'];
+    $favoriteWine = $_SESSION['favorite'];
+    $ratingWine = $_SESSION['rating'];
     $addWineQuery->execute();
     header("location:index.php");
 }
@@ -66,6 +71,26 @@ session_destroy();
                             <div class="wine-characteristic">
                                 <label for="grape">GRAPE</label>
                                 <input type="text" placeholder="Grape" name="grape" id="grape"  required>
+                            </div>
+                            <div class="item-settings">
+                                <div class="wine-rating">
+                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <label for="star5" title="text">5 stars</label>
+                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <label for="star1" title="text">1 star</label>
+                                </div>
+                                <div class="wine-favorite">
+                                    <label for="favorite">
+                                        <input type="checkbox" name="favorite" id="favorite" value="1"/>
+                                        <span class="lbl padding-8"></span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <button type="submit" class="add-button"><i class="fas fa-plus"></i> Add</button>

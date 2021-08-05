@@ -57,7 +57,7 @@ h1, h2{
     padding-left: 33px;
     margin: 10px;
     width: 30%;
-    height: 350px;
+    height: 400px;
     min-width: 200px;
 }
 
@@ -123,7 +123,7 @@ h2.white-wine-title {
     margin: 0;
 }
 
-.wine-characteristics-wrapper label {
+.wine-card label {
     margin: 3px 0 5px 0;
 }
 /*.wine-characteristics-wrapper input {*/
@@ -134,6 +134,227 @@ h2.white-wine-title {
     max-width: 100%;
     margin: 0 0 15px 0;
 }
+
+.wine-favorite {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0;
+}
+
+.wine-favorite .lbl::before {
+    cursor:pointer;
+}
+
+    /* -------------------------------------*/
+input [type=checkbox] {
+    width: 20px;
+    font-family: fontAwesome;
+    content: "\f004";
+    opacity: 0;
+    position: absolute;
+    z-index: 12;
+    width: 33px;
+    height: 33px;
+}
+input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
+    z-index: 12;
+    width: 18px;
+    height: 18px;
+}
+
+input[type=checkbox]:checked,
+input[type=checkbox]:focus {
+    outline: none;
+}
+
+input[type=checkbox]+.lbl,
+input[type=radio]+.lbl {
+    position: relative;
+    z-index: 11;
+    display: inline-block;
+    margin: 0;
+    line-height: 20px;
+    min-height: 14px;
+    min-width: 14px;
+    font-weight: normal;
+}
+
+input[type=checkbox]+.lbl.padding-16::before {
+    margin-right: 16px;
+}
+
+input[type=checkbox]+.lbl.padding-12::before {
+    margin-right: 12px;
+}
+
+input[type=checkbox]+.lbl.padding-8::before {
+    margin-right: 8px;
+}
+
+input[type=checkbox]+.lbl.padding-4::before {
+    margin-right: 4px;
+}
+
+input[type=checkbox]+.lbl.padding-0::before {
+    margin-right: 0px;
+}
+
+input[type=checkbox]+.lbl::before {
+    font-family: fontAwesome;
+    font-weight: normal;
+    font-size: 31px;
+    color: #D7D7D7;
+    content: '\f004';
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    height: 33px;
+    line-height: 33px;
+    min-width: 33px;
+    margin-right: 1px;
+    margin-top: -5px;
+}
+
+input[type=checkbox]:checked+.lbl::before {
+    display: inline-block;
+    content: '\f004';
+    color: #e80344;
+}
+
+.heart-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.favorite-item::after, .non-favorite-item::after {
+    font-family: fontAwesome;
+    content: '\f004';
+    font-weight: normal;
+    font-size: 31px;
+    height: 33px;
+    line-height: 33px;
+    min-width: 33px;
+}
+
+.favorite-item::after {
+    color: #e80344;
+}
+
+.non-favorite-item::after {
+    color: #D7D7D7;
+}
+
+.item-settings {
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/*-----------------------------------*/
+
+.wine-rating {
+    float: left;
+    width:fit-content;
+    height: 20px;
+}
+.wine-rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.wine-rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size: 1rem;
+    color:#ccc;
+}
+.wine-rating:not(:checked) > label:before {
+    content: '★ ';
+}
+.wine-rating > input:checked ~ label {
+    color: #ffc700;
+}
+.wine-rating:not(:checked) > label:hover,
+.wine-rating:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.wine-rating > input:checked + label:hover,
+.wine-rating > input:checked + label:hover ~ label,
+.wine-rating > input:checked ~ label:hover,
+.wine-rating > input:checked ~ label:hover ~ label,
+.wine-rating > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+/*---------------------------------*/
+.star-rating-1:before {
+    content: '★';
+    color: #ffc700;
+}
+.star-rating-1::after {
+    content: '★★★★';
+    color:#ccc;
+}
+.star-rating-2:before {
+    content: '★★';
+    color: #ffc700;
+}
+.star-rating-2::after {
+    content: '★★★';
+    color:#ccc;
+}
+.star-rating-3:before {
+    content: '★★★';
+    color: #ffc700;
+}
+.star-rating-3::after {
+    content: '★★';
+    color:#ccc;
+}
+.star-rating-4:before {
+    content: '★★★★';
+    color: #ffc700;
+}
+.star-rating-4::after {
+    content: '★';
+    color:#ccc;
+}
+.star-rating-5:before {
+    content: '★★★★★';
+    color: #ffc700;
+}
+
+.star-rating-0:before {
+    content: '★★★★★';
+    color:#ccc;
+}
+.star-rating-1, .star-rating-2, .star-rating-3, .star-rating-4, .star-rating-5, .star-rating-0 {
+    font-family: fontAwesome;
+    font-weight: normal;
+    font-size: 1rem;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    min-width: 1.1rem;
+    position: relative;
+    left: 0;
+    bottom: 0;
+}
+
+/*---------------------------------*/
+
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 .wine-characteristic p {
     margin: 5px 0 0 0;
@@ -158,7 +379,7 @@ h2.white-wine-title {
     margin-right: 5px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
     main {
         padding: 20px 20px;
     }
@@ -182,7 +403,7 @@ h2.white-wine-title {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 680px) {
 
     main {
         padding: 20px 0;
@@ -225,6 +446,13 @@ h2.white-wine-title {
         padding: 10px 20px;
         margin-top: 10px;
     }
+
+    .item-settings {
+        width: 100%;
+    }
+    .features-container, .item-settings {
+        margin-top: 15px;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -232,4 +460,5 @@ h2.white-wine-title {
         flex-direction: column;
         justify-content: flex-start;
     }
+
 }
