@@ -1,21 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&family=Yeseva+One&display=swap');
 
 html {
-    padding:0;
-    margin:0;
-
-}
-body{
-    width:100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
 }
 
 * {
-    font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
 
-h1{
+body {
+    width: 100%;
+}
+
+main {
+    background: #F8F8F8;
+    padding: 50px 50px;
+}
+
+h1 {
+    font-size: 3rem;
     text-align: center;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+}
+
+h1, h2{
+    font-family: 'Yeseva One', sans-serif;
+    font-weight: 400;
 }
 
 .wine-cards-container {
@@ -26,51 +41,195 @@ h1{
     flex-wrap: wrap;
 }
 
-.wine-card{
-    background: #cccccc;
-    padding: 20px;
+.wine-card-wrapper.red-label{
+    background: #F5D2DF;
+}
+
+.wine-card-wrapper.white-label{
+    background: #F1EBE0;
+}
+
+.wine-card-wrapper.new-wine-label {
+    background: #D7D7D7;
+}
+
+.wine-card-wrapper {
+    padding-left: 33px;
     margin: 10px;
-
-    border-radius:10px;
+    width: 30%;
+    height: 350px;
+    min-width: 200px;
 }
 
-.wine-card input {
-    margin: 10px 5px;
-}
-
-.wine-card .form-add-wine {
+.wine-card, .wine-card form.form-add-wine, .wine-characteristics-wrapper, .wine-characteristic {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-.wine-card h2, .wine-card .input-name {
-    text-align: center;
+.wine-card {
+    background: #FFFFFF;
+    padding: 30px;
+    justify-content: space-evenly;
 }
 
-.wine-characteristics {
-    display:flex;
-    justify-content: space-around;
+.wine-card form.form-add-wine {
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-.wine-characteristics h3{
-    margin: 0 8px;
+.wine-characteristic input, .wine-card .wine-characteristic select, .wine-card input {
+    border: 1px solid #979797;
+    padding: 5px 5px;
+    background: transparent;
+    width: 100%;
+    color: #737373;
 }
 
-@media screen and (max-width: 700px) {
+.wine-card input:focus, .wine-card select:focus {
+    outline: none;
+}
+
+.wine-card label{
+    width: fit-content;
+}
+
+.wine-card h2 {
+    text-align: left;
+    font-size: 1.9rem;
+}
+
+h2.red-wine-title {
+    color: #9D214E;
+}
+
+h2.white-wine-title {
+    color: #B68B3C;
+}
+
+.wine-characteristics-wrapper {
+    justify-content: flex-start;
+    margin: 10px 0 0 0;
+    width: 100%;
+}
+
+.wine-card h3, .wine-card label{
+    color: #6E6E6E;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+.wine-characteristics-wrapper h3 {
+    margin: 0;
+}
+
+.wine-characteristics-wrapper label {
+    margin: 3px 0 5px 0;
+}
+/*.wine-characteristics-wrapper input {*/
+/*    max-width: 30%;*/
+/*}*/
+
+.wine-characteristic {
+    max-width: 100%;
+    margin: 0 0 15px 0;
+}
+
+.wine-characteristic p {
+    margin: 5px 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.add-button {
+    padding: 8px 20px;
+    background: green;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    border-radius: 5px;
+}
+
+.add-button .fa-plus {
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    main {
+        padding: 20px 20px;
+    }
+
+    .wine-card-wrapper{
+        width: 45%;
+        min-width: 250px;
+
+    }
     .wine-card {
         min-width: 100%;
     }
+
     .wine-characteristics {
         justify-content: center;
+    }
+
+    .wine-characteristics-wrapper {
+
+        justify-content: space-around;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .wine-characteristics {
-        flex-direction: column;
-        text-align: center;
+
+    main {
+        padding: 20px 0;
     }
 
+    .wine-cards-container {
+        flex-direction: column;
+    }
+
+    .wine-cards-container, .wine-card-wrapper, form .wine-characteristics-wrapper, form .wine-characteristic, .add-button
+    .wine-card input, .wine-card select {
+        width: 100%;
+    }
+
+    .wine-card-wrapper {
+        min-width: auto;
+        height: auto;
+    }
+
+    .wine-characteristics-wrapper {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    form .wine-characteristics-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 15px 0 0 0;
+    }
+
+    form .wine-characteristic {
+        margin-right: 0;
+    }
+
+    .wine-characteristic {
+        margin-right: 35px;
+    }
+
+    .add-button {
+        padding: 10px 20px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .wine-characteristics-wrapper {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 }

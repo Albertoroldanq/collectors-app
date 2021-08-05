@@ -6,14 +6,26 @@ use PHpUnit\Framework\TestCase;
 class Functions extends TestCase {
     public function testSuccessCreateWineCards() {
         $expectedOutput =
-            '<div class="wine-card">
-                        <h2>Vinalba Malbec</h2>
-                        <div class="wine-characteristics">
-                            <h3>Red</h3>
-                            <h3>Argentina</h3>
-                            <h3>Malbec</h3>
+            '
+                    <div class ="wine-card-wrapper red-label">
+                        <div class="wine-card">
+                        <h2 class="red-wine-title">Vinalba Malbec</h2>
+                        <div class="wine-characteristics-wrapper">
+                            <div class="wine-characteristic">
+                                <h3>WINE TYPE</h3>
+                                <p>Red</p>
+                            </div>
+                            <div class="wine-characteristic">
+                                <h3>COUNTRY</h3>
+                                <p>Argentina</p>
+                            </div>
+                            <div class="wine-characteristic">
+                                <h3>GRAPE</h3>
+                                <p>Malbec</p>
+                            </div>
                         </div>
-                      </div>';
+                      </div>
+                    </div>';
         $input = [[
             'id'=> 1,
             'name'=>'Vinalba Malbec',
@@ -26,7 +38,7 @@ class Functions extends TestCase {
     }
 
     public function testFailureCreateWineCards() {
-        $expectedOutput = 'incorrect db format';
+        $expectedOutput = 'incorrect data inserted';
         $input = [0 => [
             'id'=> 1,
             'name'=>[],
