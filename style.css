@@ -5,6 +5,11 @@ html {
     margin: 0;
     font-family: 'Nunito', sans-serif;
 }
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     width: 100%;
 }
@@ -14,9 +19,6 @@ main {
     padding: 50px 50px;
 }
 
-* {
-    box-sizing: border-box;
-}
 h1 {
     font-size: 3rem;
     text-align: center;
@@ -59,21 +61,20 @@ h1, h2{
     min-width: 200px;
 }
 
-.wine-card {
-    width: 100%;
-    height: 100%;
-    background: #FFFFFF;
-    padding: 30px;
+.wine-card, .wine-card form.form-add-wine, .wine-characteristics-wrapper, .wine-characteristic {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.wine-card {
+    background: #FFFFFF;
+    padding: 30px;
     justify-content: space-evenly;
 }
 
 .wine-card form.form-add-wine {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 }
@@ -88,11 +89,6 @@ h1, h2{
 
 .wine-card input:focus, .wine-card select:focus {
     outline: none;
-}
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #737373;
-    opacity: 1; /* Firefox */
 }
 
 .wine-card label{
@@ -113,8 +109,6 @@ h2.white-wine-title {
 }
 
 .wine-characteristics-wrapper {
-    display:flex;
-    flex-direction: column;
     justify-content: flex-start;
     margin: 0;
     width: 100%;
@@ -139,8 +133,6 @@ h2.white-wine-title {
 .wine-characteristic {
     max-width: 100%;
     margin: 0 0 15px 0;
-    display: flex;
-    flex-direction: column;
 }
 
 .wine-characteristic p {
@@ -200,8 +192,11 @@ h2.white-wine-title {
         flex-direction: column;
     }
 
-    .wine-card-wrapper {
+    .wine-cards-container, form .wine-characteristics-wrapper, form .wine-characteristic, .add-button {
         width: 100%;
+    }
+
+    .wine-card-wrapper {
         min-width: auto;
         height: auto;
     }
@@ -215,11 +210,10 @@ h2.white-wine-title {
         flex-direction: column;
         align-items: flex-start;
         margin: 15px 0 0 0;
-        width: 100%;
     }
+    
     form .wine-characteristic {
         margin-right: 0;
-        width: 100%;
     }
 
     .wine-characteristic {
@@ -235,7 +229,6 @@ h2.white-wine-title {
     .add-button {
         padding: 10px 20px;
         margin-top: 10px;
-        width: 100%;
     }
 }
 
