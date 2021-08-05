@@ -79,7 +79,7 @@ h1, h2{
     align-items: flex-start;
 }
 
-.wine-card input, .wine-card select {
+.wine-characteristic input, .wine-card .wine-characteristic select, .wine-card input {
     border: 1px solid #979797;
     padding: 5px 5px;
     background: transparent;
@@ -192,7 +192,8 @@ h2.white-wine-title {
         flex-direction: column;
     }
 
-    .wine-cards-container, form .wine-characteristics-wrapper, form .wine-characteristic, .add-button {
+    .wine-cards-container, .wine-card-wrapper, form .wine-characteristics-wrapper, form .wine-characteristic, .add-button
+    .wine-card input, .wine-card select {
         width: 100%;
     }
 
@@ -218,12 +219,6 @@ h2.white-wine-title {
 
     .wine-characteristic {
         margin-right: 35px;
-    }
-
-    .wine-characteristics-wrapper, h2, .input-name {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .add-button {
