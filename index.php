@@ -49,22 +49,23 @@ session_destroy();
             <div class ="wine-card-wrapper new-wine-label">
                 <div class="wine-card">
                     <form action="submitVerification.php" method="POST" class="form-add-wine">
-                        <input type="text" placeholder="Insert wine name" name="name" class="input-name" required>
+                        <label for="name">NAME</label>
+                        <input type="text" placeholder="Insert wine name" name="name" class="input-name" id="name" required>
                         <div class="wine-characteristics-wrapper">
                             <div class="wine-characteristic">
-                                <label>WINE TYPE</label>
-                                <select name="type">
+                                <label for="type">WINE TYPE</label>
+                                <select name="type"  id="type" >
                                     <option value="Red">Red</option>
                                     <option value="White">White</option>
                                 </select>
                             </div>
                             <div class="wine-characteristic">
-                                <label>COUNTRY</label>
-                                <input type="text" placeholder="Country" name="country" required>
+                                <label for="country">COUNTRY</label>
+                                <input type="text" placeholder="Country" name="country" id="country"  required>
                             </div>
                             <div class="wine-characteristic">
-                                <label>GRAPE</label>
-                                <input type="text" placeholder="Grape" name="grape" required>
+                                <label for="grape">GRAPE</label>
+                                <input type="text" placeholder="Grape" name="grape" id="grape"  required>
                             </div>
                         </div>
                         <button type="submit" class="add-button"><i class="fas fa-plus"></i> Add</button>

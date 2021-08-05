@@ -110,11 +110,11 @@ h2.white-wine-title {
 
 .wine-characteristics-wrapper {
     justify-content: flex-start;
-    margin: 0;
+    margin: 10px 0 0 0;
     width: 100%;
 }
 
-.wine-characteristics-wrapper h3, .wine-characteristics-wrapper label{
+.wine-card h3, .wine-card label{
     color: #6E6E6E;
     font-weight: 400;
     font-size: 0.8rem;
