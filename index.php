@@ -98,7 +98,9 @@ session_destroy();
                 </div>
             </div>
 
-            <?php echo createWineCards($allWines);?>
+            <?php
+            $reversedArray = array_reverse($allWines, true);
+            echo (createWineCards($reversedArray));?>
         </div>
     </main>
 </body>
