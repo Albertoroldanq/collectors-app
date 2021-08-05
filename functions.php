@@ -8,7 +8,7 @@ function createWineCards(array $allWines): string {
             if(!is_string($wine['name']) || !is_string($wine['type']) || !is_string($wine['origin']) || !is_string($wine['grape'])){
                 $invalidInput = true;
             } else {
-                if ($wine['type'] == 'Red'){
+                if ($wine['type'] == 'Red') {
                     $favorite = $wine['favorite'];
                     if ($favorite == 1) {
                         $favoriteClass = 'favorite-item';
@@ -45,7 +45,13 @@ function createWineCards(array $allWines): string {
                         </div>
                       </div>
                     </div>';
-                } else if ($wine['type'] == 'White')
+                } else if ($wine['type'] == 'White') {
+                    $favorite = $wine['favorite'];
+                    if ($favorite == 1) {
+                        $favoriteClass = 'favorite-item';
+                    } else {
+                        $favoriteClass = 'non-favorite-item';
+                    }
                 $htmlWineCards .= '
                     <div class ="wine-card-wrapper white-label">
                         <div class="wine-card">
@@ -81,6 +87,7 @@ function createWineCards(array $allWines): string {
                 return 'incorrect data inserted';
             }
         }
+    }
     return $htmlWineCards;
 }
 
