@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require 'functions.php';
 
@@ -10,23 +11,34 @@ $query = $db->prepare('SELECT * FROM `list-of-wines`;');
 $query->execute();
 $allWines = $query->fetchAll();
 
-$addWineQuery = $db->prepare('INSERT INTO `list-of-wines` (`name`,`origin`, `type`, `grape`, `favorite`, `rating`) VALUES (:name, :origin, :type, :grape, :favorite, :rating );');
-$addWineQuery->bindParam(':name', $nameOfWine);
-$addWineQuery->bindParam(':origin', $countryOfWine);
-$addWineQuery->bindParam(':type', $typeOfWine);
-$addWineQuery->bindParam(':grape', $grapeOfWine);
-$addWineQuery->bindParam(':favorite', $favoriteWine);
-$addWineQuery->bindParam(':rating', $ratingWine);
 
-if(count($_SESSION) == 6 && isset($_POST)) {
+if(count($_SESSION) == 7 && isset($_POST) && $_SESSION['newItem'] === true) {
+    $addWineQuery = $db->prepare('INSERT INTO `list-of-wines` (`name`,`origin`, `type`, `grape`, `favorite`, `rating`) VALUES (:name, :origin, :type, :grape, :favorite, :rating );');
+    $addWineQuery->bindParam(':name', $nameOfWine);
+    $addWineQuery->bindParam(':origin', $countryOfWine);
+    $addWineQuery->bindParam(':type', $typeOfWine);
+    $addWineQuery->bindParam(':grape', $grapeOfWine);
+    $addWineQuery->bindParam(':favorite', $favoriteWine);
+    $addWineQuery->bindParam(':rating', $ratingWine);
     $nameOfWine = $_SESSION['name'];
     $typeOfWine = $_SESSION['type'];
     $countryOfWine = $_SESSION['country'];
     $grapeOfWine = $_SESSION['grape'];
-    $grapeOfWine = $_SESSION['grape'];
     $favoriteWine = $_SESSION['favorite'];
     $ratingWine = $_SESSION['rating'];
     $addWineQuery->execute();
+    header("location:index.php");
+}
+
+if(count($_SESSION) == 3 && isset($_POST) && $_SESSION['submitRating'] === true) {
+    $updateWineRatingQuery = $db->prepare('UPDATE `list-of-wines`
+	SET `rating` = :rating
+	WHERE `id` = :id');
+    $updateWineRatingQuery->bindParam(':rating', $ratingWine);
+    $updateWineRatingQuery->bindParam(':id', $id);
+    $ratingWine = $_SESSION['rating'];
+    $id = $_SESSION['id'];
+    $updateWineRatingQuery->execute();
     header("location:index.php");
 }
 
@@ -53,7 +65,7 @@ session_destroy();
         <div class="wine-cards-container">
             <div class ="wine-card-wrapper new-wine-label">
                 <div class="wine-card">
-                    <form action="submitVerification.php" method="POST" class="form-add-wine">
+                    <form id="newItemForm" action="submitVerification.php" method="POST" class="form-add-wine">
                         <label for="name">NAME</label>
                         <input type="text" placeholder="Insert wine name" name="name" class="input-name" id="name" required>
                         <div class="wine-characteristics-wrapper">
@@ -73,18 +85,18 @@ session_destroy();
                                 <input type="text" placeholder="Grape" name="grape" id="grape"  required>
                             </div>
                             <div class="item-settings">
-                                <div class="wine-rating">
-                                    <input type="radio" id="star5" name="rating" value="5" />
-                                    <label for="star5" title="text">5 stars</label>
-                                    <input type="radio" id="star4" name="rating" value="4" />
-                                    <label for="star4" title="text">4 stars</label>
-                                    <input type="radio" id="star3" name="rating" value="3" />
-                                    <label for="star3" title="text">3 stars</label>
-                                    <input type="radio" id="star2" name="rating" value="2" />
-                                    <label for="star2" title="text">2 stars</label>
-                                    <input type="radio" id="star1" name="rating" value="1" />
-                                    <label for="star1" title="text">1 star</label>
-                                </div>
+<!--                                <div class="wine-rating">-->
+<!--                                    <input type="radio" id="star5" name="rating" value="5" />-->
+<!--                                    <label for="star5" title="text">5 stars</label>-->
+<!--                                    <input type="radio" id="star4" name="rating" value="4" />-->
+<!--                                    <label for="star4" title="text">4 stars</label>-->
+<!--                                    <input type="radio" id="star3" name="rating" value="3" />-->
+<!--                                    <label for="star3" title="text">3 stars</label>-->
+<!--                                    <input type="radio" id="star2" name="rating" value="2" />-->
+<!--                                    <label for="star2" title="text">2 stars</label>-->
+<!--                                    <input type="radio" id="star1" name="rating" value="1" />-->
+<!--                                    <label for="star1" title="text">1 star</label>-->
+<!--                                </div>-->
                                 <div class="wine-favorite">
                                     <label for="favorite">
                                         <input type="checkbox" name="favorite" id="favorite" value="1"/>

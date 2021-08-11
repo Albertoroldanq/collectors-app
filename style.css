@@ -264,6 +264,7 @@ input[type=checkbox]:checked+.lbl::before {
     width:fit-content;
     height: 20px;
 }
+/*THE PROBLEM IS HERE*/
 .wine-rating:not(:checked) > input {
     position:absolute;
     top:-9999px;
@@ -296,58 +297,58 @@ input[type=checkbox]:checked+.lbl::before {
 }
 
 /*---------------------------------*/
-.star-rating-1:before {
-    content: '★';
-    color: #ffc700;
-}
-.star-rating-1::after {
-    content: '★★★★';
-    color:#ccc;
-}
-.star-rating-2:before {
-    content: '★★';
-    color: #ffc700;
-}
-.star-rating-2::after {
-    content: '★★★';
-    color:#ccc;
-}
-.star-rating-3:before {
-    content: '★★★';
-    color: #ffc700;
-}
-.star-rating-3::after {
-    content: '★★';
-    color:#ccc;
-}
-.star-rating-4:before {
-    content: '★★★★';
-    color: #ffc700;
-}
-.star-rating-4::after {
-    content: '★';
-    color:#ccc;
-}
-.star-rating-5:before {
-    content: '★★★★★';
-    color: #ffc700;
-}
+/*.star-rating-1:before {*/
+/*    content: '★';*/
+/*    color: #ffc700;*/
+/*}*/
+/*.star-rating-1::after {*/
+/*    content: '★★★★';*/
+/*    color:#ccc;*/
+/*}*/
+/*.star-rating-2:before {*/
+/*    content: '★★';*/
+/*    color: #ffc700;*/
+/*}*/
+/*.star-rating-2::after {*/
+/*    content: '★★★';*/
+/*    color:#ccc;*/
+/*}*/
+/*.star-rating-3:before {*/
+/*    content: '★★★';*/
+/*    color: #ffc700;*/
+/*}*/
+/*.star-rating-3::after {*/
+/*    content: '★★';*/
+/*    color:#ccc;*/
+/*}*/
+/*.star-rating-4:before {*/
+/*    content: '★★★★';*/
+/*    color: #ffc700;*/
+/*}*/
+/*.star-rating-4::after {*/
+/*    content: '★';*/
+/*    color:#ccc;*/
+/*}*/
+/*.star-rating-5:before {*/
+/*    content: '★★★★★';*/
+/*    color: #ffc700;*/
+/*}*/
 
-.star-rating-0:before {
-    content: '★★★★★';
-    color:#ccc;
-}
-.star-rating-1, .star-rating-2, .star-rating-3, .star-rating-4, .star-rating-5, .star-rating-0 {
-    font-family: fontAwesome;
-    font-weight: normal;
-    font-size: 1rem;
-    height: 1.1rem;
-    line-height: 1.1rem;
-    min-width: 1.1rem;
-    position: relative;
-    left: 0;
-    bottom: 0;
-}
+/*.star-rating-0:before {*/
+/*    content: '★★★★★';*/
+/*    color:#ccc;*/
+/*}*/
+/*.star-rating-1, .star-rating-2, .star-rating-3, .star-rating-4, .star-rating-5, .star-rating-0 {*/
+/*    font-family: fontAwesome;*/
+/*    font-weight: normal;*/
+/*    font-size: 1rem;*/
+/*    height: 1.1rem;*/
+/*    line-height: 1.1rem;*/
+/*    min-width: 1.1rem;*/
+/*    position: relative;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
+/*}*/
 
 /*---------------------------------*/
 
