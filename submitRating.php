@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION['submitRating'] = true;
+$_SESSION['submitFavorite'] = false;
 if(!isset($_POST)) {
     session_unset();
     header('Location: index.php');

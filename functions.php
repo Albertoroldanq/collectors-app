@@ -32,6 +32,7 @@ function createWineCards(array $allWines): string {
                         $selectedOne = 'checked';
                         break;
                 }
+                $checkedFavorite = $wine['favorite'] ? 'checked' : '';
 
                 $htmlWineCards .= '
                     <div class ="wine-card-wrapper '.$wineTypeClass. '-label">
@@ -53,7 +54,6 @@ function createWineCards(array $allWines): string {
                                 <p>' . $wine['grape'] . '</p>
                             </div>
                         </div>
-                        
                         <div class="item-settings">
                             <form action="submitRating.php" method="POST" id="'.$wine['id'].'" name="'.$wine['id'].'">
                                 <div class="wine-rating">
@@ -71,7 +71,15 @@ function createWineCards(array $allWines): string {
                                 </div>
                             </form>
                             <div class="heart-container">
-                                <span><span class="' . $favoriteClass.'"></span></span>
+                                 <form action="submitFavorite.php" method="POST">
+                            <div class="wine-favorite">
+                                <label for="favorite'.$wine['id'].'">
+                                    <input type="checkbox" name="favorite" id="favorite'.$wine['id'].'" value="1"'.$checkedFavorite.' />
+                                    <span class="lbl padding-8"></span>
+                                </label>
+                                <button type="submit" name="id" value="'.$wine['id'].'">OKay</button>
+                            </div>
+                           </form>
                             </div>
                         </div>
                       </div>

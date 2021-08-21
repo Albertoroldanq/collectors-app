@@ -30,13 +30,25 @@ if(count($_SESSION) == 7 && isset($_POST) && $_SESSION['newItem'] === true) {
     header("location:index.php");
 }
 
-if(count($_SESSION) == 3 && isset($_POST) && $_SESSION['submitRating'] === true) {
+if(count($_SESSION) == 4 && isset($_POST) && $_SESSION['submitRating'] === true) {
     $updateWineRatingQuery = $db->prepare('UPDATE `list-of-wines`
 	SET `rating` = :rating
 	WHERE `id` = :id');
     $updateWineRatingQuery->bindParam(':rating', $ratingWine);
     $updateWineRatingQuery->bindParam(':id', $id);
     $ratingWine = $_SESSION['rating'];
+    $id = $_SESSION['id'];
+    $updateWineRatingQuery->execute();
+    header("location:index.php");
+}
+
+if(count($_SESSION) == 4 && isset($_POST) && $_SESSION['submitFavorite'] === true) {
+    $updateWineRatingQuery = $db->prepare('UPDATE `list-of-wines`
+	SET `favorite` = :favorite
+	WHERE `id` = :id');
+    $updateWineRatingQuery->bindParam(':favorite', $favoriteWine);
+    $updateWineRatingQuery->bindParam(':id', $id);
+    $favoriteWine = $_SESSION['favorite'];
     $id = $_SESSION['id'];
     $updateWineRatingQuery->execute();
     header("location:index.php");
@@ -97,12 +109,12 @@ session_destroy();
 <!--                                    <input type="radio" id="star1" name="rating" value="1" />-->
 <!--                                    <label for="star1" title="text">1 star</label>-->
 <!--                                </div>-->
-                                <div class="wine-favorite">
-                                    <label for="favorite">
-                                        <input type="checkbox" name="favorite" id="favorite" value="1"/>
-                                        <span class="lbl padding-8"></span>
-                                    </label>
-                                </div>
+<!--                                <div class="wine-favorite">-->
+<!--                                    <label for="favorite">-->
+<!--                                        <input type="checkbox" name="favorite" id="favorite" value="1"/>-->
+<!--                                        <span class="lbl padding-8"></span>-->
+<!--                                    </label>-->
+<!--                                </div>-->
                             </div>
                         </div>
                         <button type="submit" class="add-button"><i class="fas fa-plus"></i> Add</button>
