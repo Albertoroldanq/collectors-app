@@ -74,7 +74,7 @@ function createWineCards(array $allWines): string {
                                  <form action="submitFavorite.php" method="POST">
                             <div class="wine-favorite">
                                 <label for="favorite'.$wine['id'].'">
-                                    <input type="checkbox" name="favorite" id="favorite'.$wine['id'].'" value="1"'.$checkedFavorite.' />
+                                    <input type="checkbox" name="favorite" id="favorite'.$wine['id'].'" value="1" '.$checkedFavorite. ' />
                                     <span class="lbl padding-8"></span>
                                 </label>
                                 <button type="submit" name="id" value="'.$wine['id'].'">OKay</button>
