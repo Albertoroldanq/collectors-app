@@ -164,7 +164,7 @@ input[type=checkbox] {
     height: 18px;
 }
 
-input[type=checkbox]:checked,
+input[type=checkbox].checked,
 input[type=checkbox]:focus {
     outline: none;
 }
@@ -217,7 +217,7 @@ input[type=checkbox]+.lbl::before {
     margin-top: -5px;
 }
 
-input[type=checkbox]:checked+.lbl::before {
+input[type=checkbox].checked+.lbl::before {
     display: inline-block;
     content: '\f004';
     color: #e80344;
@@ -255,6 +255,9 @@ input[type=checkbox]:checked+.lbl::before {
 }
 
 /*-----------------------------------*/
+.submitRating {
+    width: 50%;
+}
 
 .wine-rating {
     float: left;
@@ -262,7 +265,7 @@ input[type=checkbox]:checked+.lbl::before {
     height: 20px;
 }
 /*THE PROBLEM IS HERE*/
-.wine-rating:not(:checked) > input {
+.wine-rating:not(.checked) > input {
     position:absolute;
     display:none;
 }
@@ -292,60 +295,6 @@ input[type=checkbox]:checked+.lbl::before {
 .wine-rating > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }
-
-/*---------------------------------*/
-/*.star-rating-1:before {*/
-/*    content: '★';*/
-/*    color: #ffc700;*/
-/*}*/
-/*.star-rating-1::after {*/
-/*    content: '★★★★';*/
-/*    color:#ccc;*/
-/*}*/
-/*.star-rating-2:before {*/
-/*    content: '★★';*/
-/*    color: #ffc700;*/
-/*}*/
-/*.star-rating-2::after {*/
-/*    content: '★★★';*/
-/*    color:#ccc;*/
-/*}*/
-/*.star-rating-3:before {*/
-/*    content: '★★★';*/
-/*    color: #ffc700;*/
-/*}*/
-/*.star-rating-3::after {*/
-/*    content: '★★';*/
-/*    color:#ccc;*/
-/*}*/
-/*.star-rating-4:before {*/
-/*    content: '★★★★';*/
-/*    color: #ffc700;*/
-/*}*/
-/*.star-rating-4::after {*/
-/*    content: '★';*/
-/*    color:#ccc;*/
-/*}*/
-/*.star-rating-5:before {*/
-/*    content: '★★★★★';*/
-/*    color: #ffc700;*/
-/*}*/
-
-/*.star-rating-0:before {*/
-/*    content: '★★★★★';*/
-/*    color:#ccc;*/
-/*}*/
-/*.star-rating-1, .star-rating-2, .star-rating-3, .star-rating-4, .star-rating-5, .star-rating-0 {*/
-/*    font-family: fontAwesome;*/
-/*    font-weight: normal;*/
-/*    font-size: 1rem;*/
-/*    height: 1.1rem;*/
-/*    line-height: 1.1rem;*/
-/*    min-width: 1.1rem;*/
-/*    position: relative;*/
-/*    left: 0;*/
-/*    bottom: 0;*/
-/*}*/
 
 /*---------------------------------*/
 

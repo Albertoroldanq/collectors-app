@@ -32,10 +32,11 @@ function createWineCards(array $allWines): string {
                         break;
                 }
                 $checkedFavorite = $wine['favorite'] ? 'checked' : "";
+                $checkedValue = $checkedFavorite ? 1 : 0;
 
                 $htmlWineCards .= '
                     <div class ="wine-card-wrapper '.$wineTypeClass. '-label">
-                        <div class="wine-card">
+                        <div class="wine-card" id="'.$wine['id'].'">
                         <h2 class="'.$wineTypeClass.'-wine-title">'
                         . $wine['name'] .
                         '</h2>
@@ -54,29 +55,27 @@ function createWineCards(array $allWines): string {
                             </div>
                         </div>
                         <div class="item-settings">
-                            <form action="submitRating.php" method="POST" id="'.$wine['id'].'" name="'.$wine['id'].'">
+                            <form class="submitRating" action="submitRating.php" method="POST" id="rating-'.$wine['id'].'" name="rating-'.$wine['id'].'">
                                 <div class="wine-rating">
-                                    <input type="radio" id="star5-'.$wine['id'].'" name="rating" value="5" '.$selectedFive.'/>
+                                    <input class="stars" type="radio" id="star5-'.$wine['id'].'" name="rating" value="5-'.$wine['id'].'" '.$selectedFive.'/>
                                     <label for="star5-'.$wine['id'].'" title="text">5 stars</label>
-                                    <input type="radio" id="star4-'.$wine['id'].'" name="rating" value="4" '.$selectedFour.'/>
+                                    <input class="stars" type="radio" id="star4-'.$wine['id'].'" name="rating" value="4-'.$wine['id'].'" '.$selectedFour.'/>
                                     <label for="star4-'.$wine['id'].'" title="text">4 stars</label>
-                                    <input type="radio" id="star3-'.$wine['id'].'" name="rating" value="3" '.$selectedThree.'/>
+                                    <input class="stars" type="radio" id="star3-'.$wine['id'].'" name="rating" value="3-'.$wine['id'].'" '.$selectedThree.'/>
                                     <label for="star3-'.$wine['id'].'" title="text">3 stars</label>
-                                    <input type="radio" id="star2-'.$wine['id'].'" name="rating" value="2" '.$selectedTwo.'/>
+                                    <input class="stars" type="radio" id="star2-'.$wine['id'].'" name="rating" value="2-'.$wine['id'].'" '.$selectedTwo.'/>
                                     <label for="star2-'.$wine['id'].'" title="text">2 stars</label>
-                                    <input type="radio" id="star1-'.$wine['id'].'" name="rating" value="1" '.$selectedOne.'/>
+                                    <input class="stars" type="radio" id="star1-'.$wine['id'].'" name="rating" value="1-'.$wine['id'].'" '.$selectedOne.'/>
                                     <label for="star1-'.$wine['id'].'" title="text">1 star</label>
-                                    <button type="submit" name="id" value="'.$wine['id'].'">OKay</button>
                                 </div>
                             </form>
                             <div class="heart-container">
                                  <form action="submitFavorite.php" method="POST">
                             <div class="wine-favorite">
                                 <label for="favorite-'.$wine['id'].'">
-                                    <input type="checkbox" name="favorite" id="favorite-'.$wine['id'].'" '.$checkedFavorite. ' />
+                                    <input class ="'.$checkedFavorite.'" type="checkbox" name="favorite" id="favorite-'.$wine['id'].'" value="'.$checkedValue.'-'.$wine['id'].'" />
                                     <span class="lbl padding-8"></span>
                                 </label>
-                                <button type="submit" name="id" value="'.$wine['id'].'">OKay</button>
                             </div>
                            </form>
                             </div>

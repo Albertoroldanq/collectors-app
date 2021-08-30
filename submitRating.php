@@ -10,7 +10,9 @@ if(!isset($_POST)) {
             session_unset();
             header('Location: index.php');
         } else {
-            $_SESSION['rating'] = $_POST['rating'];
-            $_SESSION['id'] = $_POST['id'];
+            $idRating = preg_split('~-~', $_POST['rating']);
+            $_SESSION['rating'] = $idRating[0];
+            $_SESSION['id'] = $idRating[1];
+            $_SESSION['pagePosition'] = '#'.$idRating[1];
         }
-    } header('Location: index.php');
+    } header('Location: index.php'.$_SESSION['pagePosition']);

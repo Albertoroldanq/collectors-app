@@ -30,7 +30,7 @@ if(count($_SESSION) == 7 && isset($_POST) && $_SESSION['newItem'] === true) {
     header("location:index.php");
 }
 
-if(count($_SESSION) == 4 && isset($_POST) && $_SESSION['submitRating'] === true) {
+if(count($_SESSION) == 5 && isset($_POST) && $_SESSION['submitRating'] === true) {
     $updateWineRatingQuery = $db->prepare('UPDATE `list-of-wines`
 	SET `rating` = :rating
 	WHERE `id` = :id');
@@ -39,10 +39,10 @@ if(count($_SESSION) == 4 && isset($_POST) && $_SESSION['submitRating'] === true)
     $ratingWine = $_SESSION['rating'];
     $id = $_SESSION['id'];
     $updateWineRatingQuery->execute();
-    header("location:index.php");
+    header('Location:'.$_SESSION['pagePosition']);
 }
 
-if(count($_SESSION) == 4 && isset($_POST) && $_SESSION['submitFavorite'] === true) {
+if(count($_SESSION) == 5 && isset($_POST) && $_SESSION['submitFavorite'] === true) {
     $updateWineRatingQuery = $db->prepare('UPDATE `list-of-wines`
 	SET `favorite` = :favorite
 	WHERE `id` = :id');
@@ -56,7 +56,6 @@ if(count($_SESSION) == 4 && isset($_POST) && $_SESSION['submitFavorite'] === tru
 
 session_unset();
 session_destroy();
-
 ?>
 
 <!DOCTYPE html>
@@ -96,26 +95,6 @@ session_destroy();
                                 <label for="grape">GRAPE</label>
                                 <input type="text" placeholder="Grape" name="grape" id="grape"  required>
                             </div>
-                            <div class="item-settings">
-<!--                                <div class="wine-rating">-->
-<!--                                    <input type="radio" id="star5" name="rating" value="5" />-->
-<!--                                    <label for="star5" title="text">5 stars</label>-->
-<!--                                    <input type="radio" id="star4" name="rating" value="4" />-->
-<!--                                    <label for="star4" title="text">4 stars</label>-->
-<!--                                    <input type="radio" id="star3" name="rating" value="3" />-->
-<!--                                    <label for="star3" title="text">3 stars</label>-->
-<!--                                    <input type="radio" id="star2" name="rating" value="2" />-->
-<!--                                    <label for="star2" title="text">2 stars</label>-->
-<!--                                    <input type="radio" id="star1" name="rating" value="1" />-->
-<!--                                    <label for="star1" title="text">1 star</label>-->
-<!--                                </div>-->
-<!--                                <div class="wine-favorite">-->
-<!--                                    <label for="favorite">-->
-<!--                                        <input type="checkbox" name="favorite" id="favorite" value="1"/>-->
-<!--                                        <span class="lbl padding-8"></span>-->
-<!--                                    </label>-->
-<!--                                </div>-->
-                            </div>
                         </div>
                         <button type="submit" class="add-button"><i class="fas fa-plus"></i> Add</button>
                     </form>
@@ -128,5 +107,6 @@ session_destroy();
         </div>
     </main>
 </body>
+<script defer src="js/index.js"></script>
 
 </html>
