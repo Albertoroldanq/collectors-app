@@ -13,6 +13,6 @@ if(!isset($_POST)) {
             $idRating = preg_split('~-~', $_POST['rating']);
             $_SESSION['rating'] = $idRating[0];
             $_SESSION['id'] = $idRating[1];
-            $_SESSION['pagePosition'] = '#'.$idRating[1];
+            $_SESSION['pagePosition'] = $idRating[2];
         }
-    } header('Location: index.php'.$_SESSION['pagePosition']);
+    } header('Location: index.php');

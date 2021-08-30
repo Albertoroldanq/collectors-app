@@ -1,9 +1,24 @@
 let valueIdFavoriteSplit = false
 let valueFavorite = 0
 let idFavorite = 0
+
+let scrollPos = document.querySelector('main').dataset.scrollposition
+
+//document.documentElement.scrollTop = document.querySelector('main').dataset.scrollposition
+//document.body.scrollTop = document.querySelector('main').dataset.scrollposition
+let position = window.location.search.split("?")
+document.documentElement.scrollTop = position[1]
+document.body.scrollTop = position[1]
+
+document.addEventListener('scroll', e => {
+    let scrollPosition = document.querySelector('html').scrollTop
+    scrollPos = scrollPosition
+})
+
 document.querySelector('.wine-cards-container').addEventListener('click', e => {
     e.stopPropagation()
     if (e.target.name === 'rating') {
+        e.target.value = e.target.value + '-' + scrollPos
         e.target.form.submit()
     }
     else if (e.target.name === 'favorite') {
@@ -14,14 +29,13 @@ document.querySelector('.wine-cards-container').addEventListener('click', e => {
             if(valueFavorite === 1) {
                 valueFavorite = 0
                 e.target.className = ''
-                e.target.value = '0-'+ idFavorite
+                e.target.value = '0-'+ idFavorite + '-' + scrollPos
             } else {
                 valueFavorite = 1
                 e.target.className = 'checked'
-                e.target.value = '1-' + idFavorite
+                e.target.value = '1-' + idFavorite + '-' + scrollPos
             }
-            console.log(e.target.className)
-            console.log(e.target.checked)
-        e.target.form.submit()
+            //document.querySelector('main').dataset.scrollposition = scrollPos
+            e.target.form.submit()
         }
 })

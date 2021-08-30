@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require 'functions.php';
 
@@ -10,7 +9,6 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 $query = $db->prepare('SELECT * FROM `list-of-wines`;');
 $query->execute();
 $allWines = $query->fetchAll();
-
 
 if(count($_SESSION) == 7 && isset($_POST) && $_SESSION['newItem'] === true) {
     $addWineQuery = $db->prepare('INSERT INTO `list-of-wines` (`name`,`origin`, `type`, `grape`, `favorite`, `rating`) VALUES (:name, :origin, :type, :grape, :favorite, :rating );');
@@ -39,7 +37,7 @@ if(count($_SESSION) == 5 && isset($_POST) && $_SESSION['submitRating'] === true)
     $ratingWine = $_SESSION['rating'];
     $id = $_SESSION['id'];
     $updateWineRatingQuery->execute();
-    header('Location:'.$_SESSION['pagePosition']);
+    header('Location:?'.$_SESSION['pagePosition']);
 }
 
 if(count($_SESSION) == 5 && isset($_POST) && $_SESSION['submitFavorite'] === true) {
@@ -51,9 +49,12 @@ if(count($_SESSION) == 5 && isset($_POST) && $_SESSION['submitFavorite'] === tru
     $favoriteWine = $_SESSION['favorite'];
     $id = $_SESSION['id'];
     $updateWineRatingQuery->execute();
-    header("location:index.php");
+    header('location:index.php?'.$_SESSION['pagePosition']);
 }
 
+/*if(!isset($_SESSION['pagePosition'])){
+    $scrollPos = 0;
+}*/
 session_unset();
 session_destroy();
 ?>
@@ -72,7 +73,8 @@ session_destroy();
     <header>
         <h1>My Wine List</h1>
     </header>
-    <main>
+    //<?php echo '<main data-scrollPosition ="'.$scrollPos.'">';?>
+        <main>
         <div class="wine-cards-container">
             <div class ="wine-card-wrapper new-wine-label">
                 <div class="wine-card">
