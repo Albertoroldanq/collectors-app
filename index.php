@@ -73,7 +73,7 @@ session_destroy();
     <header>
         <h1>My Wine List</h1>
     </header>
-    //<?php echo '<main data-scrollPosition ="'.$scrollPos.'">';?>
+    <?php //echo '<main data-scrollPosition ="'.$scrollPos.'">';?>
         <main>
         <div class="wine-cards-container">
             <div class ="wine-card-wrapper new-wine-label">
