@@ -9,6 +9,7 @@ let scrollPos = document.querySelector('main').dataset.scrollposition
 let position = window.location.search.split("?")
 document.documentElement.scrollTop = position[1]
 document.body.scrollTop = position[1]
+history.replaceState(null,null, window.location.pathname + "")
 
 document.addEventListener('scroll', e => {
     let scrollPosition = document.querySelector('html').scrollTop

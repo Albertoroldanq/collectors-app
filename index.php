@@ -51,10 +51,6 @@ if(count($_SESSION) == 5 && isset($_POST) && $_SESSION['submitFavorite'] === tru
     $updateWineRatingQuery->execute();
     header('location:index.php?'.$_SESSION['pagePosition']);
 }
-
-/*if(!isset($_SESSION['pagePosition'])){
-    $scrollPos = 0;
-}*/
 session_unset();
 session_destroy();
 ?>
@@ -73,7 +69,6 @@ session_destroy();
     <header>
         <h1>My Wine List</h1>
     </header>
-    <?php //echo '<main data-scrollPosition ="'.$scrollPos.'">';?>
         <main>
         <div class="wine-cards-container">
             <div class ="wine-card-wrapper new-wine-label">

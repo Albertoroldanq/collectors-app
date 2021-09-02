@@ -4,7 +4,7 @@ $_SESSION['submitFavorite'] = true;
 $_SESSION['submitRating'] = false;
 if(!isset($_POST)) {
     session_unset();
-    //header('Location: index.php');
+    header('Location: index.php');
 } else {
         $valueIdFavorite = preg_split('~-~', $_POST['favorite']);
         $_SESSION['favorite'] = $valueIdFavorite[0];
