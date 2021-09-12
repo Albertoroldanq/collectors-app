@@ -14,26 +14,31 @@ function createWineCards(array $allWines): string {
                 $selectedThree = '';
                 $selectedTwo = '';
                 $selectedOne = '';
-                switch($wine['rating']) {
-                    case 5:
-                        $selectedFive = 'checked';
-                        break;
-                    case 4:
-                        $selectedFour = 'checked';
-                        break;
-                    case 3:
-                        $selectedThree = 'checked';
-                        break;
-                    case 2:
-                        $selectedTwo = 'checked';
-                        break;
-                    case 1:
-                        $selectedOne = 'checked';
-                        break;
+                $checkedFavorite = "";
+                $checkedValue = 0;
+                if (isset($wine['rating']) && isset($wine['favorite'])){
+                    switch($wine['rating']) {
+                        case 5:
+                            $selectedFive = 'checked';
+                            break;
+                        case 4:
+                            $selectedFour = 'checked';
+                            break;
+                        case 3:
+                            $selectedThree = 'checked';
+                            break;
+                        case 2:
+                            $selectedTwo = 'checked';
+                            break;
+                        case 1:
+                            $selectedOne = 'checked';
+                            break;
+                        default:
+                            break;
+                    }
+                    $checkedFavorite = $wine['favorite'] ? 'checked' : "";
+                    $checkedValue = $checkedFavorite ? 1 : 0;
                 }
-                $checkedFavorite = $wine['favorite'] ? 'checked' : "";
-                $checkedValue = $checkedFavorite ? 1 : 0;
-
                 $htmlWineCards .= '
                     <div class ="wine-card-wrapper '.$wineTypeClass. '-label">
                         <div class="wine-card" id="'.$wine['id'].'">
@@ -82,10 +87,10 @@ function createWineCards(array $allWines): string {
                         </div>
                       </div>
                     </div>';
+        }
             if ($invalidInput) {
                 return 'incorrect data inserted';
             }
-        }
     }
     return $htmlWineCards;
 }
