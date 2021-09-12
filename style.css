@@ -25,7 +25,7 @@ h1 {
 }
 
 h2 {
-    margin: 0 0 20px 0;
+    margin: 0 0 30px 0;
 }
 
 h1, h2{
@@ -126,13 +126,11 @@ h2.white-wine-title {
 .wine-card label {
     margin: 3px 0 5px 0;
 }
-/*.wine-characteristics-wrapper input {*/
-/*    max-width: 30%;*/
-/*}*/
 
 .wine-characteristic {
     max-width: 100%;
     margin: 0 0 15px 0;
+    height: fit-content;
 }
 
 .wine-favorite {
@@ -147,7 +145,7 @@ h2.white-wine-title {
     cursor:pointer;
 }
 
-    /* -------------------------------------*/
+    /* ------------------------------------- https://www.w3schools.com/howto/howto_css_custom_checkbox.asp*/
 input [type=checkbox] {
     width: 20px;
     font-family: fontAwesome;
@@ -166,7 +164,7 @@ input[type=checkbox] {
     height: 18px;
 }
 
-input[type=checkbox]:checked,
+input[type=checkbox].checked,
 input[type=checkbox]:focus {
     outline: none;
 }
@@ -219,7 +217,7 @@ input[type=checkbox]+.lbl::before {
     margin-top: -5px;
 }
 
-input[type=checkbox]:checked+.lbl::before {
+input[type=checkbox].checked+.lbl::before {
     display: inline-block;
     content: '\f004';
     color: #e80344;
@@ -257,15 +255,19 @@ input[type=checkbox]:checked+.lbl::before {
 }
 
 /*-----------------------------------*/
+.submitRating {
+    width: 50%;
+}
 
 .wine-rating {
     float: left;
     width:fit-content;
     height: 20px;
 }
-.wine-rating:not(:checked) > input {
+/*THE PROBLEM IS HERE*/
+.wine-rating:not(.checked) > input {
     position:absolute;
-    top:-9999px;
+    display:none;
 }
 .wine-rating:not(:checked) > label {
     float:right;
@@ -292,60 +294,6 @@ input[type=checkbox]:checked+.lbl::before {
 .wine-rating > input:checked ~ label:hover ~ label,
 .wine-rating > label:hover ~ input:checked ~ label {
     color: #c59b08;
-}
-
-/*---------------------------------*/
-.star-rating-1:before {
-    content: '★';
-    color: #ffc700;
-}
-.star-rating-1::after {
-    content: '★★★★';
-    color:#ccc;
-}
-.star-rating-2:before {
-    content: '★★';
-    color: #ffc700;
-}
-.star-rating-2::after {
-    content: '★★★';
-    color:#ccc;
-}
-.star-rating-3:before {
-    content: '★★★';
-    color: #ffc700;
-}
-.star-rating-3::after {
-    content: '★★';
-    color:#ccc;
-}
-.star-rating-4:before {
-    content: '★★★★';
-    color: #ffc700;
-}
-.star-rating-4::after {
-    content: '★';
-    color:#ccc;
-}
-.star-rating-5:before {
-    content: '★★★★★';
-    color: #ffc700;
-}
-
-.star-rating-0:before {
-    content: '★★★★★';
-    color:#ccc;
-}
-.star-rating-1, .star-rating-2, .star-rating-3, .star-rating-4, .star-rating-5, .star-rating-0 {
-    font-family: fontAwesome;
-    font-weight: normal;
-    font-size: 1rem;
-    height: 1.1rem;
-    line-height: 1.1rem;
-    min-width: 1.1rem;
-    position: relative;
-    left: 0;
-    bottom: 0;
 }
 
 /*---------------------------------*/

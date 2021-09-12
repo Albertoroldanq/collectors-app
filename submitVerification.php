@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['newItem'] = true;
 if(!isset($_POST)) {
     session_unset();
     header('Location: index.php');
