@@ -261,10 +261,17 @@ input[type=checkbox].checked+.lbl::before {
 
 .wine-rating {
     float: left;
-    width:fit-content;
+    width: fit-content;
     height: 20px;
+    display:flex;
+    flex-wrap: nowrap;
+    transform: scaleX(-1);
 }
-/*THE PROBLEM IS HERE*/
+
+.wine-rating label {
+    height: 100%;
+}
+    /*THE PROBLEM IS HERE*/
 .wine-rating:not(.checked) > input {
     position:absolute;
     display:none;
@@ -303,7 +310,6 @@ input[type=checkbox].checked+.lbl::before {
     justify-content: space-between;
     align-items: center;
 }
-
 
 .wine-characteristic p {
     margin: 5px 0 0 0;
@@ -352,7 +358,7 @@ input[type=checkbox].checked+.lbl::before {
     }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 800px) {
 
     main {
         padding: 20px 0;
@@ -370,6 +376,7 @@ input[type=checkbox].checked+.lbl::before {
     .wine-card-wrapper {
         min-width: auto;
         height: auto;
+        margin: 10px 0;
     }
 
     .wine-characteristics-wrapper {
