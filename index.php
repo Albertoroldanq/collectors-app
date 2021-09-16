@@ -10,24 +10,49 @@ $query = $db->prepare('SELECT * FROM `list-of-wines`;');
 $query->execute();
 $allWines = $query->fetchAll();
 
-$addWineQuery = $db->prepare('INSERT INTO `list-of-wines` (`name`,`origin`, `type`, `grape`) VALUES (:name, :origin, :type, :grape );');
-$addWineQuery->bindParam(':name', $nameOfWine);
-$addWineQuery->bindParam(':origin', $countryOfWine);
-$addWineQuery->bindParam(':type', $typeOfWine);
-$addWineQuery->bindParam(':grape', $grapeOfWine);
-
-if(count($_SESSION) == 4 && isset($_POST)) {
+if(count($_SESSION) == 7 && isset($_POST) && $_SESSION['newItem'] === true) {
+    $addWineQuery = $db->prepare('INSERT INTO `list-of-wines` (`name`,`origin`, `type`, `grape`, `favorite`, `rating`) VALUES (:name, :origin, :type, :grape, :favorite, :rating );');
+    $addWineQuery->bindParam(':name', $nameOfWine);
+    $addWineQuery->bindParam(':origin', $countryOfWine);
+    $addWineQuery->bindParam(':type', $typeOfWine);
+    $addWineQuery->bindParam(':grape', $grapeOfWine);
+    $addWineQuery->bindParam(':favorite', $favoriteWine);
+    $addWineQuery->bindParam(':rating', $ratingWine);
     $nameOfWine = $_SESSION['name'];
     $typeOfWine = $_SESSION['type'];
     $countryOfWine = $_SESSION['country'];
     $grapeOfWine = $_SESSION['grape'];
+    $favoriteWine = $_SESSION['favorite'];
+    $ratingWine = $_SESSION['rating'];
     $addWineQuery->execute();
     header("location:index.php");
 }
 
+if(count($_SESSION) == 5 && isset($_POST) && $_SESSION['submitRating'] === true) {
+    $updateWineRatingQuery = $db->prepare('UPDATE `list-of-wines`
+	SET `rating` = :rating
+	WHERE `id` = :id');
+    $updateWineRatingQuery->bindParam(':rating', $ratingWine);
+    $updateWineRatingQuery->bindParam(':id', $id);
+    $ratingWine = $_SESSION['rating'];
+    $id = $_SESSION['id'];
+    $updateWineRatingQuery->execute();
+    header('Location:?'.$_SESSION['pagePosition']);
+}
+
+if(count($_SESSION) == 5 && isset($_POST) && $_SESSION['submitFavorite'] === true) {
+    $updateWineRatingQuery = $db->prepare('UPDATE `list-of-wines`
+	SET `favorite` = :favorite
+	WHERE `id` = :id');
+    $updateWineRatingQuery->bindParam(':favorite', $favoriteWine);
+    $updateWineRatingQuery->bindParam(':id', $id);
+    $favoriteWine = $_SESSION['favorite'];
+    $id = $_SESSION['id'];
+    $updateWineRatingQuery->execute();
+    header('location:index.php?'.$_SESSION['pagePosition']);
+}
 session_unset();
 session_destroy();
-
 ?>
 
 <!DOCTYPE html>
@@ -44,11 +69,11 @@ session_destroy();
     <header>
         <h1>My Wine List</h1>
     </header>
-    <main>
+        <main>
         <div class="wine-cards-container">
             <div class ="wine-card-wrapper new-wine-label">
                 <div class="wine-card">
-                    <form action="submitVerification.php" method="POST" class="form-add-wine">
+                    <form id="newItemForm" action="submitVerification.php" method="POST" class="form-add-wine">
                         <label for="name">NAME</label>
                         <input type="text" placeholder="Insert wine name" name="name" class="input-name" id="name" required>
                         <div class="wine-characteristics-wrapper">
@@ -73,9 +98,12 @@ session_destroy();
                 </div>
             </div>
 
-            <?php echo createWineCards($allWines);?>
+            <?php
+            $reversedArray = array_reverse($allWines, true);
+            echo (createWineCards($reversedArray));?>
         </div>
     </main>
 </body>
+<script defer src="js/index.js"></script>
 
 </html>

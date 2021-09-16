@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.6.3-MariaDB-1:10.6.3+maria~focal)
 # Database: vegan-wines
-# Generation Time: 2021-08-03 12:03:16 +0000
+# Generation Time: 2021-08-05 13:38:54 +0000
 # ************************************************************
 
 
@@ -32,19 +32,21 @@ CREATE TABLE `list-of-wines` (
   `origin` varchar(30) NOT NULL DEFAULT '',
   `type` varchar(11) NOT NULL DEFAULT '',
   `grape` varchar(30) NOT NULL DEFAULT '',
+  `favorite` tinyint(1) NOT NULL DEFAULT 0,
+  `rating` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 LOCK TABLES `list-of-wines` WRITE;
 /*!40000 ALTER TABLE `list-of-wines` DISABLE KEYS */;
 
-INSERT INTO `list-of-wines` (`id`, `name`, `origin`, `type`, `grape`)
+INSERT INTO `list-of-wines` (`id`, `name`, `origin`, `type`, `grape`, `favorite`, `rating`)
 VALUES
-	(1,'Vinalba Malbec','Argentina','Red','Malbec'),
-	(2,'Mas Querido','Spain','White','Macabeo'),
-	(3,'Gruner Veltliner','Austria','White','Gruner Veltliner'),
-	(4,'Herdade de Gambia','Portugal','Red','Touriga Nacional'),
-	(5,'La Belle Angele','France','White','Sauvignon Blanc');
+	(1,'Vinalba Malbec','Argentina','Red','Malbec',0,1),
+	(2,'Mas Querido','Spain','White','Macabeo',0,5),
+	(3,'Gruner Veltliner','Austria','White','Gruner Veltliner',1,4),
+	(4,'Herdade de Gambia','Portugal','Red','Touriga Nacional',0,3),
+	(5,'La Belle Angele','France','White','Sauvignon Blanc',1,1);
 
 /*!40000 ALTER TABLE `list-of-wines` ENABLE KEYS */;
 UNLOCK TABLES;
